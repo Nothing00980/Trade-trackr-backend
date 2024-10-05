@@ -19,17 +19,23 @@ const fs  = require('fs').promises;
 const path = require('path');
 
 const app = express();
-app.use(cors({
-    origin: 'https://nothing00980.github.io', // Allow specific origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+const corsOptions = {
+  origin: 'https://nothing00980.github.io', // Replace with the specific domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true // Allow credentials (cookies, auth headers, etc.) if necessary
+};
 
 const PORT = process.env.PORT;
 const mongodbstring = process.env.MONGO_URL;
 const crypto = require('crypto');
 
 const secretKey = process.env.SECRETKEY;
+
+app.options('*', cors(corsOptions));
+
+// Apply CORS to all other requests as well (for non-preflight requests)
+app.use(cors(corsOptions));
 
 
 
