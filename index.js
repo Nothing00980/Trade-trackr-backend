@@ -19,7 +19,12 @@ const fs  = require('fs').promises;
 const path = require('path');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://nothing00980.github.io', // Allow specific origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const PORT = process.env.PORT;
 const mongodbstring = process.env.MONGO_URL;
 const crypto = require('crypto');
