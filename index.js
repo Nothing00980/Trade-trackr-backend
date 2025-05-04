@@ -20,7 +20,7 @@ const path = require('path');
 
 const app = express();
 const corsOptions = {
-  origin: 'https://nothing00980.github.io', // Replace with the specific domain
+  origin: 'https://trade-trackr.vercel.app/', // Replace with the specific domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials (cookies, auth headers, etc.) if necessary
