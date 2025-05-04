@@ -26,6 +26,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials (cookies, auth headers, etc.) if necessary
 };
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT;
 const mongodbstring = process.env.MONGO_URL;
@@ -33,7 +34,6 @@ const crypto = require('crypto');
 
 const secretKey = process.env.SECRETKEY;
 
-app.use(cors(corsOptions));
 
 // Apply CORS to all other requests as well (for non-preflight requests)
 
