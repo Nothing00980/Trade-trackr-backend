@@ -32,10 +32,10 @@ const crypto = require('crypto');
 
 const secretKey = process.env.SECRETKEY;
 
+app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
 // Apply CORS to all other requests as well (for non-preflight requests)
-app.use(cors(corsOptions));
 
 
 
