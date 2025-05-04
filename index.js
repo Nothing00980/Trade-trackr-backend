@@ -19,8 +19,9 @@ const fs  = require('fs').promises;
 const path = require('path');
 
 const app = express();
+
 const corsOptions = {
-  origin: 'https://trade-trackr.vercel.app/', // Replace with the specific domain
+  origin: 'https://trade-trackr.vercel.app', // Replace with the specific domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials (cookies, auth headers, etc.) if necessary
@@ -33,7 +34,6 @@ const crypto = require('crypto');
 const secretKey = process.env.SECRETKEY;
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
 // Apply CORS to all other requests as well (for non-preflight requests)
 
